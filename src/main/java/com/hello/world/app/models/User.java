@@ -15,6 +15,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 import javax.persistence.UniqueConstraint;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -34,6 +37,7 @@ private String password;
 private boolean status;
 @Column(name="create_date")
 @Temporal(TemporalType.TIMESTAMP)
+@JsonFormat(pattern = "MM/dd/yyyy")
 private Date createDate;
 
 @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

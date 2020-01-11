@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hello.world.app.converter.UserConverter;
 import com.hello.world.app.dto.UserDTO;
+import com.hello.world.app.models.User;
 import com.hello.world.app.repository.UserRepository;
 import com.hello.world.app.services.UserService;
 @Service
@@ -29,6 +30,10 @@ private UserConverter userConverter;
 	@Override
 	public UserDTO findByName(String name) {
 		return userConverter.UsertoUserDTO(userRepository.findByName(name));
+	}
+	@Override
+	public UserDTO saveUser(User user) {
+		return userConverter.UsertoUserDTO(userRepository.save(user));
 	}
 
 }

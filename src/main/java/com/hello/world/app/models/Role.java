@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="roles")
 public class Role {
@@ -25,6 +27,7 @@ public class Role {
 	private boolean status;
 	@Column(name="create_date")
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern = "MM/dd/yyyy")
 	private Date createDate;
 	
 	public Date getCreateDate() {
